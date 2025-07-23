@@ -23,6 +23,8 @@
                     <li><strong>Horario Apertura:</strong> {{tienda.horario_apertura}}</li>
                     <li><strong>Horario Cierre:</strong> {{tienda.horario_cierre}}</li>
                 </ul>
+
+                <a href="{% if   tienda.url %} {{ tienda.url }} {% else %} # {% endif %}" target="_blank" class="boton">Sitio Web Oficial</a>
             </div>
         </div>
     {% endfor %}

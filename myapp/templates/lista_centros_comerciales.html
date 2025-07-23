@@ -28,7 +28,7 @@
                     {% endif %}
                     
                 </ul>
-                <a href="{{centro_comercial.url}}" class="boton">Sitio Web Oficial</a>
+                <a href="{% if centro_comercial.url %} {{ centro_comercial.url }} {% else %} # {% endif %}" target="_blank" class="boton">Sitio Web Oficial</a>
             </div>
         </div>
     {% endfor %}
