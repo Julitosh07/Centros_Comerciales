@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block container %}
+
+<header>
+    <h1>Información y perfil del usuario</h1>
+</header>
+
+<div class="centro">
+            <div class="info">
+                <h3>Usuario: {{ user.username}} </h3>
+                <ul>
+                    <li><strong>Nombre:</strong> {{ user.first_name }}</li>
+                    <li><strong>Apellido:</strong> {{ user.last_name }} </li>
+                    <li><strong>Email:</strong> {{ user.email }}</li>
+                    <li><strong>Fecha de creación:</strong> {{ user.date_joined }} </li>                  
+                    
+                </ul>
+</div>
+            </div>
+
+{% endblock %}

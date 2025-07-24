@@ -9,3 +9,9 @@ def lista_centros_comerciales(request):
 def lista_tiendas(request):
     tiendas = Tienda.objects.all()
     return render(request, 'lista_tiendas.html', {'tiendas': tiendas})
+
+def vista_centro_comercial(request, name_cc):
+    centro_comercial = CentroComercial.objects.get(nombre=name_cc)
+    #tiendas = centro_comercial.tiendas_set.all()
+    tiendas = []
+    return render(request, 'vista_centro_comercial.html', {'centro_comercial': centro_comercial, 'tiendas': tiendas})
