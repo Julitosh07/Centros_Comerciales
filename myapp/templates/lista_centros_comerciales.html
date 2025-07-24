@@ -28,7 +28,8 @@
                     {% endif %}
                     
                 </ul>
-                <a href="{% if centro_comercial.url %} {{ centro_comercial.url }} {% else %} # {% endif %}" target="_blank" class="boton">Sitio Web Oficial</a>
+                <a href="{% if centro_comercial.url %} {{ centro_comercial.url }} {% else %} # {% endif %}" target="blank" class="boton">Sitio Web Oficial</a>
+                <a href="{% url 'myapp:vista_centro_comercial' centro_comercial.nombre%}" target="blank" class="boton">Ver Tiendas</a>
             </div>
         </div>
     {% endfor %}
