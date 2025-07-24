@@ -5,33 +5,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Centros Comerciales</title>
+    <title>Tiendas de Centros Comerciales</title>
     <link rel="stylesheet" href="{% static 'css/comercial.css'%}">
 </head>
 <body>
     <header>
-        <h1>Centros Comerciales del Área Metropolitana de Bucaramanga</h1>
+        <h1>Tiendas del Centro Comercial {{ centro_comercial.nombre }}</h1>
+        <h4>{{centro_comercial.ciudad}}</h4>
     </header>
 
-    {% for centro_comercial in centros_comerciales %}
+    {% for tienda in tiendas %}
         <div class="centro">
             <div class="info">
-                <h3>Centro Comercial {{centro_comercial.nombre}}</h3>
+                <h3>Tienda {{tienda.nombre}}</h3>
                 <ul>
-                    <li><strong>Ciudad:</strong> {{centro_comercial.ciudad}}</li>
-                    <li><strong>Ubicación:</strong> {{centro_comercial.direccion}}</li>
-                    <li><strong>Teléfono:</strong> {{centro_comercial.telefono}}</li>
-                    {% if centro_comercial.descripcion %}
-                        <li><strong>Descripción:</strong> {{centro_comercial.descripcion}}</li>
-                    {% else %}
-                        <li><strong>Descripción:</strong> Visita nuestro nuevo centro comercial</li>
-                    {% endif %}
-                    
+                    <li><strong>Centro Comercial:</strong> {{tienda.centro_comercial}}</li>
+                    <li><strong>Categoria:</strong> {{tienda.categoria}}</li>
+                    <li><strong>Horario Apertura:</strong> {{tienda.horario_apertura}}</li>
+                    <li><strong>Horario Cierre:</strong> {{tienda.horario_cierre}}</li>
                 </ul>
-                <a href="{% if centro_comercial.url %} {{ centro_comercial.url }} {% else %} # {% endif %}" target="_blank" class="boton">Sitio Web Oficial</a>
+
+                <a href="{% if   tienda.url %} {{ tienda.url }} {% else %} # {% endif %}" target="_blank" class="boton">Sitio Web Oficial</a>
             </div>
         </div>
-    {% endfor %}   
+    {% endfor %}
     
 </body>
 </html>

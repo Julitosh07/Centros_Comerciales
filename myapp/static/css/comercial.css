@@ -36,6 +36,11 @@ h3 {
     color: #1a1a1a;
 }
 
+h4 {
+    margin-top: 10px;
+    color: white;
+}
+
 /* Estilo de cada bloque de centro comercial */
 .centro {
     display: flex;
