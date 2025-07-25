@@ -29,3 +29,8 @@ class Tienda(models.Model):
     
     class Meta:
         verbose_name_plural = "Tiendas"
+
+
+class Archivo(models.Model):
+    nombre = models.CharField(max_length=100)
+    upload = models.FileField(upload_to='uploads/')
