@@ -1,34 +1,26 @@
-{% load static %}
+{% extends 'base.html'%}
+{% block container %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiendas de Centros Comerciales</title>
-    <link rel="stylesheet" href="{% static 'css/comercial.css'%}">
-</head>
-<body>
-    <header>
-        <h1>Tiendas del Centro Comercial {{ centro_comercial.nombre }}</h1>
-        <h4>{{centro_comercial.ciudad}}</h4>
-    </header>
 
-    {% for tienda in tiendas %}
-        <div class="centro">
-            <div class="info">
-                <h3>Tienda {{tienda.nombre}}</h3>
-                <ul>
-                    <li><strong>Centro Comercial:</strong> {{tienda.centro_comercial}}</li>
-                    <li><strong>Categoria:</strong> {{tienda.categoria}}</li>
-                    <li><strong>Horario Apertura:</strong> {{tienda.horario_apertura}}</li>
-                    <li><strong>Horario Cierre:</strong> {{tienda.horario_cierre}}</li>
-                </ul>
+<header>
+    <h1>Tiendas del Centro Comercial {{ centro_comercial.nombre }}</h1>
+    <h4>{{centro_comercial.ciudad}}</h4>
+</header>
 
-                <a href="{% if   tienda.url %} {{ tienda.url }} {% else %} # {% endif %}" target="_blank" class="boton">Sitio Web Oficial</a>
-            </div>
+{% for tienda in tiendas %}
+    <div class="centro">
+        <div class="info">
+            <h3>Tienda {{tienda.nombre}}</h3>
+            <ul>
+                <li><strong>Centro Comercial:</strong> {{tienda.centro_comercial}}</li>
+                <li><strong>Categoria:</strong> {{tienda.categoria}}</li>
+                <li><strong>Horario Apertura:</strong> {{tienda.horario_apertura}}</li>
+                <li><strong>Horario Cierre:</strong> {{tienda.horario_cierre}}</li>
+            </ul>
+
+            <a href="{% if   tienda.url %} {{ tienda.url }} {% else %} # {% endif %}" target="_blank" class="boton">Sitio Web Oficial</a>
         </div>
-    {% endfor %}
+    </div>
+{% endfor %}
     
-</body>
-</html>
+{% endblock %}

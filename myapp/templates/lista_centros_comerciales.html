@@ -1,40 +1,29 @@
-{% load static %}
+{% extends 'base.html'%}
+{% block container %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Centros Comerciales</title>
-    <link rel="stylesheet" href="{% static 'css/comercial.css'%}">
-</head>
-<body>
-    <header>
-        <h1>Centros Comerciales del Área Metropolitana de Bucaramanga</h1>
-    </header>
+<header>
+    <h1>Centros Comerciales del Área Metropolitana de Bucaramanga</h1>
+</header>
 
-    {% for centro_comercial in centros_comerciales %}
-        <div class="centro">
-            <div class="info">
-                <h3>Centro Comercial {{centro_comercial.nombre}}</h3>
-                <ul>
-                    <li><strong>Ciudad:</strong> {{centro_comercial.ciudad}}</li>
-                    <li><strong>Ubicación:</strong> {{centro_comercial.direccion}}</li>
-                    <li><strong>Teléfono:</strong> {{centro_comercial.telefono}}</li>
-                    {% if centro_comercial.descripcion %}
-                        <li><strong>Descripción:</strong> {{centro_comercial.descripcion}}</li>
-                    {% else %}
-                        <li><strong>Descripción:</strong> Visita nuestro nuevo centro comercial</li>
-                    {% endif %}
-                    
-                </ul>
-                <a href="{% if centro_comercial.url %} {{ centro_comercial.url }} {% else %} # {% endif %}" target="blank" class="boton">Sitio Web Oficial</a>
-                <a href="{% url 'myapp:vista_centro_comercial' centro_comercial.nombre%}" target="blank" class="boton">Ver Tiendas</a>
-            </div>
+{% for centro_comercial in centros_comerciales %}
+    <div class="centro">
+        <div class="info">
+            <h3>Centro Comercial {{centro_comercial.nombre}}</h3>
+            <ul>
+                <li><strong>Ciudad:</strong> {{centro_comercial.ciudad}}</li>
+                <li><strong>Ubicación:</strong> {{centro_comercial.direccion}}</li>
+                <li><strong>Teléfono:</strong> {{centro_comercial.telefono}}</li>
+                {% if centro_comercial.descripcion %}
+                    <li><strong>Descripción:</strong> {{centro_comercial.descripcion}}</li>
+                {% else %}
+                    <li><strong>Descripción:</strong> Visita nuestro nuevo centro comercial</li>
+                {% endif %}
+                
+            </ul>
+            <a href="{% if centro_comercial.url %} {{ centro_comercial.url }} {% else %} # {% endif %}" target="blank" class="boton">Sitio Web Oficial</a>
+            <a href="{% url 'myapp:vista_centro_comercial' centro_comercial.nombre%}" target="blank" class="boton">Ver Tiendas</a>
         </div>
-    {% endfor %}
+    </div>
+{% endfor %}
 
-    
-    
-</body>
-</html>
+{% endblock %}
